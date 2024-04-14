@@ -1,0 +1,400 @@
+---
+import { getPermalink } from '~/utils/permalinks';
+
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import CallToAction2 from '~/components/widgets/CallToAction2.astro';
+import Steps7 from '~/components/widgets/Steps7.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+import Heroserv from '~/components/widgets/Heroserv.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
+import Prices2 from '~/components/widgets/Pricing2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Content2 from '~/components/widgets/Content2.astro';
+
+const metadata = {
+  title: 'Nos Services',
+};
+---
+
+<Layout metadata={metadata}>
+    <div class="background">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  <!-- Hero Widget ******************* -->
+
+  <Heroserv
+    tagline="Nos prestations"
+    image={{
+      src: '~/assets/images/Bull.webp',
+      alt: 'Site web performant',
+    }}
+  >
+  <Fragment slot="title">
+    <span class="hidden xl:inline"></span>Une vitrine qui <br>
+    <span class="animate-custom-ping text-accent dark:text-primary highlight">attire</span> le regard et
+    <span class="animate-custom-ping1 text-accent dark:text-accent highlight"> retient </span><br>l’attention
+  </Fragment>
+
+  <Fragment slot="subtitle" class="opacity-0 transform translate-y-5">
+    <span data-aos="fade-up" data-aos-duration="3000" class=" block mb-1 font-bold text-800 dark:text-cyan">Le potentiel du web nouvelle génération<br>au service de votre entreprise</span>
+  </Fragment>
+
+  </Heroserv>
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Nos atouts"
+    title="Découvrez l’impact du web 3.0"
+    subtitle="Un site pro qui fait la différence"
+    items={[
+      {
+        title: 'Un design qui vous démarque',
+        description:
+          "Le web 3.0 représente une avancée significative dans le domaine du design de sites web. Notre concepteur s'engage à créer une identité visuelle attrayante pour séduire vos clients, tout en restant fidèle à l'essence de votre entreprise.",
+        icon: 'ph:codesandbox-logo-light',
+      },
+      {
+        title: 'Vitesse et performance garanties',
+        description:
+        "Ne prenez pas le risque de voir vos clients s’échapper à cause d’un site trop lent. Grâce au 3.0, nous pouvons vous garantir des performances optimales pour votre vitrine virtuelle et un affichage instantané de vos pages. ",
+        icon: 'ph:rocket-launch-light',
+      },
+      {
+        title: 'Être trouvé, être choisi ',
+        description:
+          "Améliorez votre visibilité en ligne grâce à un bon référencement sur Google. Nous nous appuyons sur les meilleures pratiques et technologies issues de la troisième génération du web pour obtenir d'excellents résultats sur les moteurs de recherche.",
+        icon: 'ph:arrows-in-cardinal-light',
+      },
+      {
+        title: 'Accessibilité étendue',
+        description:
+        "Optez pour un outil accessible partout et par tous. Les sites que nous concevons offrent un affichage adapté à tous les écrans. Ils respectent également toutes les normes d'accessibilité en vigueur pour les utilisateurs.",
+        icon: 'ph:devices-light',
+      },
+      {
+        title: 'Sécurité renforcée',
+        description:
+          "Faites le choix d’une protection avancée pour votre entreprise, comme pour vos clients. Grâce à la pré génération de vos pages sur Internet, nous verrouillons l’accès aux utilisateurs malveillants et préservons le bon fonctionnement de votre site.",
+        icon: 'ph:key-light',
+      },
+      {
+        title: 'Priorité à l’expérience utilisateur',
+        description:
+          'Nous concevons des sites centrés sur l’expérience utilisateur afin de garantir une navigation fluide et intuitive à tous vos visiteurs.',
+        icon: 'ph:cursor-click-light',
+      },
+    ]}
+  />
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices2
+    tagline="Notre Ambition"
+    title="Vous offrir une vitrine professionnelle<br>en toute simplicité"
+    subtitle="Un site web adapté à vos besoins"
+    prices={[
+      {
+        title: 'Pack Essentiel',
+        subtitle: 'L’indispensable en une page pour vous démarquer aux yeux de vos clients',
+        image: { src: '~/assets/images/3dpad.webp', alt: 'création de site web portfolio' },
+        period: 'Le pack essentiel vous offre une présence en ligne personnalisée et professionnelle. Sur une seule page, votre site contient toutes les informations indispensables à connaître pour vos visiteurs, tout en renforçant votre image sur la toile.',
+        items: [
+        {
+            description: 'Page unique',
+          },
+          {
+            description: 'Présentation de votre entreprise et de vos offres',
+          },
+          {
+            description: 'Informations de contact et réseaux sociaux',
+          },
+          {
+            description: 'Affichage des commentaires et références',
+          },
+        ],
+      },
+      
+      {
+        title: 'Pack Pro',
+        subtitle: 'Un site qui travaille pour vous 24/7',
+        image: { src: '~/assets/images/3dcomputer.webp', alt: 'création de site web pro' },
+        period: 'Le pack pro vous donne l’opportunité de mettre en valeur votre entreprise au travers d’un site de trois pages. Il intègre des contenus plus détaillés pour promouvoir vos services en ligne et augmenter vos chances de convaincre.',
+        items: [
+         {
+            description: 'Site vitrine de 3 pages',
+          },
+          {
+            description: 'Meilleur référencement sur les moteurs de recherche',
+          },
+          {
+            description: 'Attractivité renforcée auprès de vos clients',
+          },
+          {
+            description: 'Formulaire de contact inclus',
+          },
+        ],
+      },
+      {
+        title: 'Pack Expert',
+        subtitle: 'Une solution au service de votre croissance',
+        image: { src: '~/assets/images/3dpuzzle.webp', alt: 'créateur de site vitrine' },
+        period: "Avec l'offre expert, nous vous fournissons un véritable outil marketing au service de votre activité. Il intègre 5 pages de navigation ainsi que des fonctionnalités avancées pour faciliter la mise en relation avec vos clients et mesurer vos résultats.",
+        items: [
+          {
+            description: 'Site vitrine de 5 pages',
+          },
+          {
+            description: 'Formulaire de contact inclus',
+          },
+          {
+            description: 'Mesures nombre de visteurs et performances Google',
+          },
+          {
+            description: 'Prise de RDV en ligne via Calendly',
+          },
+        ],
+      },
+    ]}
+   />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction2
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Demander un devis',
+        href: getPermalink('/contact'),
+        target: '_blank',
+        icon: 'tabler:phone',
+      },
+    ]}
+      />
+
+   <!-- Features4 Widget ************** -->
+
+   <Features4
+   title="Essentiel, Pro ou Expert : des offres tout-inclus"
+   subtitle="Solutions clé en main, garanties 100% esprit tranquille !"
+   items={[
+           {
+           title: 'Web 3.0',
+           description: "Bénéficiez de tous les avantages du web 3.0, quelle que soit la formule que vous choisissez. Votre site sera performant, rapide, optimisé pour le référencement naturel, adapté à l’affichage mobile et fluide à la navigation.",
+           icon: 'ph:rocket-launch-light',
+         },
+         {
+           title: 'Design personnalisé',
+           description: 'Nous veillons à mettre en lumière votre entreprise via un graphisme soigné et des animations modernes sur vos pages. Nous prenons également en compte votre charte graphique et votre secteur d’activité pour créer un univers qui vous ressemble.',
+           icon: 'ph:codesandbox-logo-light',
+         },
+         {
+           title: 'Contenus',
+           description:
+             "Tous les contenus produits sont optimisés pour les moteurs de recherche. Nous concevons des textes sur mesure, spécialement pensés pour attirer vos clients et véhiculer vos valeurs. Toutes les images utilisées sont libres de droits et de grande qualité. ",
+           icon: 'ph:note-pencil-light',
+         },
+         {
+           title: 'Législation',
+           description:
+             "Page mentions légales, mise en conformité : tous nos sites respectent les exigences françaises et européennes en matière de réglementation, d’accessibilité et de sécurité.",
+           icon: 'ph:certificate-light',
+         },
+   ]}
+   >
+   <Fragment slot="bg">
+   <div class=" absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+   </Fragment>
+   </Features4>
+   
+
+      <!-- Steps Widget ****************** -->
+
+      <Steps3
+      id="resume"
+      tagline="Notre vigilance, votre sérénité"
+      title="Hébergement et Maintenance"
+      subtitle="Notre formule d’abonnement comprend une solution d’hébergement performante et un suivi de maintenance premium. Nous garantissons ainsi une veille constante de votre site pour qu’aucune contrainte technique ne vienne perturber votre activité. Sans engagement, cet abonnement est résiliable à tout moment et sans frais supplémentaires depuis votre espace client."
+      items={[
+        {
+          title:
+            'Hébergement Cloud',
+          icon: 'tabler:check',
+        },
+        {
+          title:
+            'Surveillance continue de votre site',
+          icon: 'tabler:check',
+        },
+        {
+          title:
+            'Mise à jour du site et de ses fonctionnalités',
+          icon: 'tabler:check',
+        },
+        {
+          title:
+            'Sauvegarde régulière',
+          icon: 'tabler:check',
+        },
+        {
+          title:
+            'Actualisation des contenus',
+          icon: 'tabler:check',
+        },
+        {
+          title:
+            'Support fiable et assistance réactive',
+          icon: 'tabler:check',
+        },
+      ]}
+      classes={{ container: 'max-w-3xl' }}
+      image={{
+        src: '~/assets/images/security.webp',
+        alt: 'Site web contrat',
+      }}
+    />
+     
+ 
+   <!-- Steps Widget ****************** -->
+
+   <Steps7
+   id="resume"
+   tagline="Le déroulé"
+   title="Travailler avec nous"
+   subtitle="Transparence et communication"
+   items={[
+     {
+       title:
+         'Entretien préalable',
+       description: `Il s’agit d’un moment d’échange essentiel pour bien définir vos besoins et objectifs. Pour vous mettre en valeur sur la toile, nous devons d’abord apprendre à vous connaître et récolter toutes les informations pratiques à faire paraître sur votre site web.`,
+       icon: 'tabler:number-1',
+     },
+     {
+       title:
+         'Conception graphique',
+       description: `Charte graphique, architecture de navigation et organisation des contenus : nous vous présentons une maquette simplifiée de votre site pour valider ensemble le style et la structure.`,
+       icon: 'tabler:number-2',
+     },
+     {
+       title:
+         'Production',
+       description: `Nous traduisons vos idées en langage informatique pour donner vie à votre site. Nous rédigeons les textes, intégrons les images et les animations jusqu’à obtenir un rendu parfaitement en accord avec vos attentes.`,
+       icon: 'tabler:number-3',
+     },
+     {
+       title:
+         'Révisions',
+       description: `Nous attendons votre retour pour procéder aux modifications nécessaires et apportons les dernières vérifications à votre site avant son déploiement.`,
+       icon: 'tabler:number-4',
+     },
+     {
+       title:
+         'Mise en ligne',
+       icon: 'tabler:check',
+     },
+   ]}
+   classes={{ container: 'max-w-3xl' }}
+ />
+  
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+  isDark
+    title="Ils nous font confiance "
+    testimonials={[
+      {
+        testimonial: `Passionné, rigoureux et capable de se dépasser pour vos projets`,
+        name: 'Christophe GROSPAS',
+        job: 'Banque Populaire',
+        image: {
+          src: '~/assets/images/gropas.webp', alt: 'HansWebDev pricing Image'
+        },
+      },
+      {
+        testimonial: `Curieux et à l’écoute, Hans est un développeur qui saura faire ce qu’il faut pour vos projets. Il a une personnalité très agréable et un véritable esprit d’équipe. Je recommande`,
+        name: 'Ludivine Bocquier',
+        job: 'Designer',
+        image: {
+          src: '~/assets/images/bocquier.webp', alt: 'HansWebDev pricing Image'
+        },
+      },
+      {
+        testimonial: `Beaucoup de sérieux, d'implication, de belles capacités en développement.`,
+        name: 'Jean PONCET',
+        job: 'Partenariats',
+        image: {
+           src: '~/assets/images/poncet.webp', alt: 'HansWebDev pricing Image'
+        },
+      },
+    ]}
+  />
+
+    <!-- Content Widget **************** -->
+
+    <Content2
+    image={{
+      src: '~/assets/images/Chat.webp',
+      alt: 'FAQ site web 3.0',
+    }}>
+    </Content2>
+
+   <!-- FAQs Widget ******************* -->
+
+   <FAQs
+   title="Foire aux Questions"
+   subtitle="À propos des services de Web Magnet "
+   tagline="FAQ"
+   classes={{ container: 'max-w-6xl' }}
+   items={[
+     {
+       title: "Comment se passe la création d'un site vitrine avec Web Magnet ?",
+       description:
+         "Notre processus de création comprend une consultation initiale pour comprendre vos besoins, la conception personnalisée, le développement technique, la mise en ligne ainsi que le suivi de maintenance de votre site.",
+     },
+     {
+       title: 'Combien de temps faut-il pour créer un site vitrine ?',
+       description:
+         'La durée de création dépend de la complexité de votre projet. Cela peut prendre 7, 15 ou encore 20 jours pour coder votre site. Dans tous les cas, nous nous engageons à ce que cela ne dépasse pas les 30 jours après le versement de votre acompte.',
+     },
+     {
+       title: 'Quel est l’intérêt d’un site one-page ?',
+       description:
+         "Le site one page revient moins cher à la conception pour une entreprise qui lance son activité ou qui cherche seulement à afficher une présence professionnelle sur le web. Toutes les informations essentielles sont condensées sur une seule page au design moderne et aux animations attractives.",
+     },
+     {
+       title: 'À qui s’adressent ces offres de création de sites vitrine ?',
+       description:
+         "Les offres de Web Magnet s’adressent aux indépendants ainsi qu’aux petites et moyennes entreprises locales. Nous mettons l’efficacité et la simplicité des technologies du web 3.0 au service de nos clients afin qu’ils bénéficient pleinement des opportunités que représente une présence professionnelle sur le web.",
+     },
+   ]}
+ />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Contact',
+      href: 'https://calendly.com/webmagnetsite',
+      target: '_blank',
+      icon: 'tabler:phone',
+    },
+  ]}
+  image={{ src: '~/assets/images/photo.webp', alt: 'developpeur site web' }}
+>
+  <Fragment slot="title">
+    Un projet de site web ?<br class="block sm:hidden" />
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    <br class=" hidden md:inline" />Discutons-en le temps d'un café !
+  </Fragment>
+</CallToAction>
+</Layout>

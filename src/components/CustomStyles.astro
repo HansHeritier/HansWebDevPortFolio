@@ -1,0 +1,58 @@
+---
+import '@fontsource-variable/inter';
+
+// 'DM Sans'
+// Nunito
+// Dosis
+// Outfit
+// Roboto
+// Literata
+// 'IBM Plex Sans'
+// Karla
+// Poppins
+// 'Fira Sans'
+// 'Libre Franklin'
+// Inconsolata
+// Raleway
+// Oswald
+// 'Space Grotesk'
+// Urbanist
+---
+
+<style is:inline is:global>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: var(--aw-font-sans);
+    --aw-font-heading: var(--aw-font-sans);
+
+    --aw-color-primary: rgb(78, 170, 246);
+    --aw-color-secondary: rgb(78, 170, 246);
+    --aw-color-accent: rgb(78, 170, 246);
+
+    --aw-color-text-heading: rgb(66, 70, 110); 
+    --aw-color-text-default: rgb(25, 30, 79);
+    --aw-color-text-muted: rgb(25, 30, 79 / 66%);
+    --aw-color-bg-page: rgb(250,250,250);
+    --aw-color-bg-page-dark: rgb(3 6 32);
+
+    ::selection {background-color: lavender;}
+
+  }
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: var(--aw-font-sans);
+    --aw-font-heading: var(--aw-font-sans);
+
+    --aw-color-primary: #DC2626;
+    --aw-color-secondary: #DC2626;
+    --aw-color-accent: #03A5EA;
+  
+    --aw-color-text-heading: #03A5EA; 
+    --aw-color-text-default: rgb(238, 247, 252);
+    --aw-color-text-muted: rgba(235, 248, 252, 0.973);
+    --aw-color-bg-page: var(--aw-color-bg-page-dark);
+    
+    ::selection {background-color: black; color: snow}
+    
+  }
+</style>

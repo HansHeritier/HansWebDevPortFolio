@@ -1,0 +1,42 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+
+    <div class="background">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Contact" title="Un projet ?<br>Une question ?" image={{ src: '~/assets/images/Mailbox.webp', alt: 'HansWebDev Mailbox Image' }}/>
+
+  <ContactUs
+    title="Envoyez-nous un message<br>dès maintenant !<br>Nous vous répondons sous 24H"
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Nom',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    description="Nous utilisons vos données pour vous répondre. C'est tout."
+  />
+</Layout>

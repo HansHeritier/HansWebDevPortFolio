@@ -1,0 +1,170 @@
+---
+import Features6 from '~/components/widgets/Features6.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps5 from '~/components/widgets/Steps5.astro';
+import Steps6 from '~/components/widgets/Steps6.astro';
+import Steps4 from '~/components/widgets/Steps4.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Prices3 from '~/components/widgets/Pricing3.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'À propos',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+    <div class="background">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  <Hero
+    tagline="Qui sommes-nous ?"
+    image={{ src: '~/assets/images/Graph.webp', alt: 'site web webmagnet' }}
+  >
+    <Fragment slot="title">
+      Les partenaires<br>de votre <span class="text-accent dark:text-primary highlight">croissance</span><br />
+      <span class="text-accent dark:text-white highlight">sur le web</span>
+    </Fragment>
+
+
+  </Hero>
+
+
+<!-- Pricing Widget ******************* -->
+
+<Prices3
+tagline="Un duo complémentaire"
+subtitle="L'alliance de la technique et du marketing<br>pour un site pro efficace"
+prices={[
+  {
+    title: 'Hans',
+    subtitle: 'Chef de projet et développement',
+    image: { src: '~/assets/images/1.webp', alt: 'création de site web portfolio' },
+    period: 'Passionné par l’innovation technologique, Hans est l’architecte numérique de Web Magnet. Il façonne chaque ligne de code dans l’objectif de mettre en valeur votre entreprise, tout en lui offrant les performances exceptionnelles de l’Internet 3.0.  Son talent en webdesign donne vie à un univers captivant pour vos visiteurs, en accord avec l’identité de votre marque.',
+  },
+  
+  {
+    title: 'Laury',
+    subtitle: 'Responsable marketing et contenus',
+    image: { src: '~/assets/images/2.webp', alt: 'création de site web pro' },
+    period: 'Moi, je suis la chef d’orchestre de vos contenus. Spécialiste du webmarketing et du copywriting, je crée des textes qui attirent vos clients, raisonnent avec vos valeurs et renforcent votre crédibilité. Au sein de Web Magnet, je suis aussi votre partenaire privilégiée dans la mise en place d’une stratégie digitale efficace et adaptée à votre entreprise.',
+  },
+]}
+/>
+
+ <!-- Steps4 Widget ****************** -->
+
+ <Steps4
+ title="La raison d'être de Web Magnet "
+ description="En équipe dans la vie depuis 10 ans, nous avons eu envie de réunir nos compétences pour réaliser des projets qui ont du sens. Plongés dans l'univers du web, nous avons rapidement observé un besoin criant chez de nombreuses entreprises locales : celui de se démarquer efficacement en ligne.<br><br>Face à l’uberisation croissante de la société et au changement des pratiques de consommation, nous sommes pourtant convaincus que ce sont précisément ces entreprises qui peuvent tirer le plus grand bénéfice d'une présence digitale solide.<br><br>C’est ainsi qu’est né Web Magnet. Notre mission est claire : proposer des solutions digitales à la fois simples, performantes et abordables à tous ces acteurs du quotidien qui jouent un rôle fondamental dans la vie locale."
+  />
+
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps5
+  tagline="Nos valeurs"
+  title="Notre Engagement"
+  items={[
+    {
+      title: '<span class="font-medium">Qualité</span>',
+      description:
+        "Nous faisons de l’excellence notre priorité. Affichage, design, contenus, performances ou encore accessibilité sur mobile : nous ne laissons rien au hasard pour que votre site web bénéficie (vraiment) à votre entreprise.",
+      icon: 'tabler:check',
+    },
+    {
+      title: '<span class="font-medium">Fiabilité</em>',
+      description:
+        "Ici, aucune fausse promesse ni * cachée dans un coin. Nous sommes convaincus qu’une communication 100 % honnête et transparente à chaque étape du projet est la seule vraie garantie d’obtenir un résultat à la hauteur de vos attentes.",
+      icon: 'tabler:check',
+    },
+    {
+      title: '<span class="font-medium">Disponibilité</span>',
+      description:
+        'Nous sommes de ceux qui prônent la relation durable ! Nous vous accompagnons avant, pendant et après la mise en place de votre site pour vous fournir en toutes circonstances les conseils et l’assistance dont vous avez besoin.',
+      icon: 'tabler:check',
+    },
+  ]}
+  image={{
+    src: '~/assets/images/photo.webp',
+    alt: 'Photographie fondateur',
+  }}
+/>
+
+ <!-- Features6 Widget ************** -->
+
+ <Features6
+ title="Technologies utilisées"
+ tagline="JAMSTACK SITE 3.0"
+ columns={3}
+ items={[
+   {
+     title: 'HTML',
+     icon: 'skill-icons:html',
+   },
+   {
+     title: 'CSS',
+     icon: 'skill-icons:css',
+   },
+   {
+     title: 'JAVASCRIPT',
+     icon: 'skill-icons:javascript',
+   },
+   {
+     title: 'REACT',
+     icon: 'skill-icons:react-light',
+   },
+   {
+     title: 'TAILWIND',
+     icon: 'skill-icons:tailwindcss-light',
+   },
+   {
+     title: 'ASTRO',
+     icon: 'skill-icons:astro',
+   },
+   {
+     title: 'NETLIFY',
+     icon: 'skill-icons:netlify-light',
+   },
+   {
+     title: 'VERCEL',
+    icon: 'skill-icons:vercel-light',
+   },
+   {
+     title: 'GIT',
+     icon: 'skill-icons:git',
+   },
+ ]}
+/>
+
+
+ <!-- Steps6 Widget ****************** -->
+
+ <Steps6
+ title="Nous contacter"
+ subtitle="Une idée ?<br>Une question ?"
+ callToAction={{
+   text: 'Envoyez-nous un message',
+   href: getPermalink('/contact'),
+   
+ }}
+ items={[
+   {
+     title: 'Email',
+     description: 'webmagnetsite@gmail.com',
+     icon: 'ph:messenger-logo-light',
+      
+   },
+   {
+     title: 'Linkedin',
+     description: '/in/webmagnetsite/',
+     icon: 'ph:linkedin-logo-light',
+   },
+ ]}
+/>
+
+</Layout>

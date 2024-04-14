@@ -1,0 +1,358 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features5 from '~/components/widgets/Features5.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import CallToAction2 from '~/components/widgets/CallToAction2.astro';
+import Content2 from '~/components/widgets/Content2.astro';
+
+
+const metadata = {
+  title: 'Nos Tarifs',
+};
+---
+
+<Layout metadata={metadata}>
+    <div class="background">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    
+     <!-- Hero Widget ******************* -->
+  <Hero
+  tagline="Explorez nos solutions"
+  image={{ src: '~/assets/images/logod.webp', alt: 'webmagnet création de site web' }}
+  >
+  <Fragment slot="title">
+    <span class="hidden xl:inline"></span>Site vitrine 
+    <span class="animate-custom-ping text-accent dark:text-primary highlight">3.0</span> :<br>plus de 
+    <span class="animate-custom-ping1 text-accent dark:text-accent highlight">performances</span><br>moins de 
+    <span class="animate-custom-ping2 text-accent dark:text-accent highlight">dépenses</span>
+  </Fragment>
+  
+
+  <Fragment slot="subtitle" class="opacity-0 transform translate-y-5">
+    <span data-aos="fade-up" data-aos-duration="3000" class=" block mb-1 font-bold text-800 dark:text-cyan">Le meilleur du web à la portée des petites entreprises</span>
+  </Fragment>
+  
+  </Hero>
+
+ <!-- Features5 Widget ************** -->
+
+ <Features5
+ title="Découvrez les avantages de nos offres"
+ tagline="Sites vitrine Web Magnet"
+ items={[
+         {
+     title: 'Site web clé en main',
+     description:
+       "Simplifiez-vous la vie grâce à nos solutions tout-inclus et restez concentré sur votre activité.",
+     icon: 'ph:key-light',
+   },
+   {
+     title: 'Qualité web 3.0',
+     description:
+       "Bénéficiez de tous les avantages du web nouvelle génération pour renforcer votre présence en ligne.",
+     icon: 'ph:crown-light',
+   },
+   {
+     title: 'Rapidité de livraison',
+     description: "De l’idée à la mise en ligne : obtenez votre vitrine professionnelle en moins d’un mois.",
+     icon: 'ph:shooting-star-light',
+   },
+   {
+     title: 'Transparence',
+     description: 'Nos tarifs sont élaborés en toute transparence pour une facture garantie sans surprise.',
+     icon: 'ph:drop-light',
+   },
+   {
+     title: 'Abonnement réduit ',
+     description:
+       'Profitez d’un hébergement optimal et d’un service de maintenance premium à prix réduit.',
+     icon: 'ph:coins-light',
+   },
+   {
+     title: 'Sans engagement',
+     description: "Votre abonnement mensuel est résiliable à tout moment depuis votre espace client. ",
+     icon: 'ph:wind-light',
+   },
+ ]}
+>
+ <Fragment slot="bg">
+   <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+ </Fragment>
+</Features5>
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices
+    title="Tarifs"
+    subtitle="Des offres claires et transparentes"
+    prices={[
+      {
+        title: 'Pack Essentiel',
+        subtitle: 'Page Simple',
+        price: 450,
+        period: 'Abonnement 39 €/mois',
+        items: [
+        {
+            description: 'Hébergement Cloud',
+          },
+          {
+            description: 'Support et maintenance',
+          },
+          {
+            description: 'Mentions légales',
+          },
+          {
+            description: 'Affichage mobile et tablette',
+          },
+          {
+            description: 'Livraison sous 30 jours',
+          },
+          {
+            description: 'Liens réseaux sociaux',
+          },
+        ],
+      },
+      {
+        title: 'Pack Pro',
+        subtitle: '3 pages',
+        price: 850,
+        period: 'Abonnement 49€/mois',
+        items: [
+        {
+            description: 'Hébergement Cloud',
+          },
+          {
+            description: 'Support et maintenance',
+          },
+          {
+            description: 'Mentions légales',
+          },
+          {
+            description: 'Affichage mobile et tablette',
+          },
+          {
+            description: 'Livraison sous 30 jours',
+          },
+          {
+            description: 'Liens réseaux sociaux',
+          },
+          {
+            description: 'Formulaire de contact - Offert',
+          },
+        ],
+        hasRibbon: true,
+        ribbonTitle: 'Populaire',
+      },
+      {
+        title: 'Pack Expert',
+        subtitle: '5 pages',
+        price: 1250,
+        period: 'Abonnement 59 €/mois',
+        items: [
+        {
+            description: 'Hébergement Cloud',
+          },
+          {
+            description: 'Support et maintenance',
+          },
+          {
+            description: 'Mentions légales',
+          },
+          {
+            description: 'Affichage mobile et tablette',
+          },
+          {
+            description: 'Livraison sous 30 jours',
+          },
+          {
+            description: 'Liens réseaux sociaux',
+          },
+          {
+            description: 'Formulaire de contact - Offert',
+          },
+          {
+            description: 'Mesure de statistiques et performances - Offert',
+          },
+          {
+            description: 'Calendrier de réservation en ligne - Offert',
+          },
+        ],
+      },
+    ]}
+  />
+
+ <!-- CallToAction Widget ************** -->
+
+ <CallToAction2
+ actions={[
+   {
+     variant: 'primary',
+     text: 'Démarrer mon projet',
+     href: getPermalink('/contact'),
+     target: '_blank',
+     icon: 'tabler:phone',
+   },
+ ]}
+   />
+
+
+
+ <!-- Features6 Widget ************** -->
+
+  <Features5
+  title="Solutions modulables"
+  subtitle="Personnalisez votre formule pour un site sur mesure"
+  items={[
+        {
+      title: 'Page',
+      description:"Création d’une page supplémentaire complète avec design, rédaction des contenus et référencement SEO.<br><br><b>200 €</b>",
+      icon: 'ph:devices-light',
+    },
+    {
+      title: 'Formulaire de contact',
+     description: "Ajout d’un formulaire de contact pour que vos clients puissent vous laisser un message directement sur votre site.<br><br><b>75 €</b>",
+      icon: 'ph:chat-circle-light',
+    },
+    {
+      title: 'Calendly',
+      description:"Intégration d’un calendrier de réservation pour que vos visiteurs puissent facilement planifier un RDV.<br><br><b>75 €</b>",
+      icon: 'ph:calendar-light',
+    },
+    {
+      title: 'Google Analytics',
+      description:"Intégration d’un outil de mesures du nombre de visiteurs et des performances de votre site web pour une vision concrète de vos résultats.<br><br><b>75 €</b>",
+      icon: 'ph:google-logo-light',
+    },
+    {
+      title: 'Interface Newsletter',
+      description:"Configuration de votre site avec un autorépondeur qui vous permet d’envoyer facilement des emails afin de promouvoir vos offres ou de fidéliser vos clients.<br><br><b>100 €</b>",
+      icon: 'ph:messenger-logo-light',
+    },
+    {
+      title: 'Autres',
+      description:"Une idée ? Un besoin particulier ? Contactez-vous ! Nous verrons ensemble les solutions que nous pouvons mettre en place pour réaliser votre projet.<br><br><b>Sur mesure</b>",
+      icon: 'ph:lightbulb-filament-light',
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features5>
+  
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Déroulement du projet"
+    tagline="Processus de création"
+    isReversed={true}
+    items={[
+           {
+       title:
+         'Entretien préalable',
+       description: `Il s’agit d’un moment d’échange essentiel pour bien définir vos besoins et objectifs. Pour vous mettre en valeur sur la toile, nous devons d’abord apprendre à vous connaître et récolter toutes les informations pratiques à faire paraître sur votre site web.`,
+       icon: 'tabler:number-1',
+     },
+     {
+       title:
+         'Conception graphique',
+       description: `Charte graphique, architecture de navigation et organisation des contenus : nous vous présentons une maquette simplifiée de votre site pour valider ensemble le style et la structure.`,
+       icon: 'tabler:number-2',
+     },
+     {
+       title:
+         'Production',
+       description: `Nous traduisons vos idées en langage informatique pour donner vie à votre site. Nous rédigeons les textes, intégrons les images et les animations jusqu’à obtenir un rendu parfaitement en accord avec vos attentes.`,
+       icon: 'tabler:number-3',
+     },
+     {
+       title:
+         'Révisions',
+       description: `Nous attendons votre retour pour procéder aux modifications nécessaires et apportons les dernières vérifications à votre site avant son déploiement.`,
+       icon: 'tabler:number-4',
+     },
+     {
+       title:
+         'Mise en ligne',
+       icon: 'tabler:check',
+     },
+    ]}
+    image={{ src: '~/assets/images/data1.webp', alt: 'conception de site web' }}
+  />
+
+
+    <!-- Content Widget **************** -->
+
+    <Content2
+    image={{
+      src: '~/assets/images/Megaphone.webp',
+      alt: 'FAQ site web vitrine',
+    }}>
+    </Content2>
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Foire aux Questions"
+    subtitle="À propos des modalités de paiement"
+    tagline="FAQ"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Pourquoi la création d’un site vitrine sur Web Magnet coûte-t-il moins cher qu’ailleurs ?',
+        description:
+          "JLe Web 3.0 rend le développement de sites Internet plus rapide et plus efficace. Stockés dans le cloud, ils nécessitent également moins d'espace de stockage et de maintenance. Grâce à ces avancées, Web Magnet peut mettre à disposition de ces clients des solutions de qualité à prix attractifs, tant à la création qu’à l’entretien de leur site web.",
+      },
+      {
+        title: 'Comment se passe le paiement avec Web Magnet ?',
+        description:
+          'Les frais de création sont fractionnés en deux parties : un acompte de 50 % au démarrage du projet et le restant à la livraison. Le premier versement d’abonnement débute le jour de la mise en ligne de votre site. Nous proposons le paiement par carte bancaire ou virement selon votre choix. Il s’effectue via Stripe pour des transactions faciles et sécurisées.',
+      },
+      {
+        title: 'À qui appartient le nom de domaine de mon site Internet ?',
+        description:
+          "Il est essentiel que vous soyez propriétaire de l’adresse de votre site web. Pour cela, nous vous guidons pas à pas dans l’acquisition de votre nom de domaine. Celui-ci coûte en moyenne une dizaine d’euros pas an.",
+      },
+      {
+        title: 'Que se passe-t-il si je résilie mon abonnement ?',
+        description:
+          "Les services d’hébergement et de maintenance sont maintenus jusqu’à la fin du mois versé. Nous vous transmettons le dossier complet de votre site sous 48h afin que vous puissiez le placer dans la solution d’hébergement de votre choix.",
+      },
+    ]}
+  />
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Contact',
+      href: getPermalink('/contact'),
+      target: '_blank',
+      icon: 'tabler:phone',
+    },
+  ]}
+  image={{ src: '~/assets/images/photo.webp', alt: 'Créateur de site web' }}
+>
+  <Fragment slot="title">
+    Un projet de site web ?<br class="block sm:hidden" />
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    <br class=" hidden md:inline" />Discutons-en le temps d'un café !
+  </Fragment>
+</CallToAction>
+</Layout>

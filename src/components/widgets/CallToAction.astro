@@ -1,0 +1,82 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import Headline3 from '~/components/ui/Headline3.astro';
+import Button from "~/components/ui/Button.astro"
+import Image from '~/components/common/Image.astro';
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+  image?: string | any;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  actions = await Astro.slots.render('actions'),
+  image = await Astro.slots.render('image'),
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div
+    class="max-w-2xl mx-auto text-center p-6 rounded-3xl shadow-xl bg-white/5 backdrop-blur-sm "
+  >
+  <div>
+    {
+      image && (
+        <div data-aos="fade-up" data-aos-duration="2000" class="relative m-auto max-w-5xl">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+          <Image
+          class="mx-auto my-5 rounded-full w-full"
+          widths={[100, 192, 512]}  
+          sizes="(max-width: 767px) 100px, (max-width: 1023px) 192px, (max-width: 2039px) 256px, 510px" 
+          loading="eager"
+          width={140} 
+          height={140}
+          {...image}
+        />
+          )}
+        </div>
+      )
+    }
+  </div>
+    <Headline3
+      title={title}
+      subtitle={subtitle}
+      tagline={tagline}
+      classes={{
+        container: 'mb-0 md:mb-0',
+        title: 'text-4xl md:text-4xl font-bold leading-tighter tracking-tighter font-heading',
+        subtitle: 'text-xl text-muted dark:text-slate-200',
+      }}
+    />
+    {
+      actions && (
+        <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
+          {Array.isArray(actions) ? (
+            actions.map((action) => (
+              <div class="flex w-full sm:w-auto">
+                <Button {...(action || {})} class="w-full sm:mb-0" />
+              </div>
+            ))
+          ) : (
+            <Fragment set:html={actions} />
+          )}
+        </div>
+      )
+    }
+  </div>
+</WidgetWrapper>

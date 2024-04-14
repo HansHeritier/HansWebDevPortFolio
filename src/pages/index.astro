@@ -1,0 +1,366 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps1 from '~/components/widgets/Steps1.astro';
+import Steps5 from '~/components/widgets/Steps5.astro';
+import Steps4 from '~/components/widgets/Steps4.astro';
+import Content2 from '~/components/widgets/Content2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs1 from '~/components/widgets/FAQs1.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+  title: 'Accueil',
+  ignoreTitleTemplate: true,
+};
+
+---
+<Layout metadata={metadata}>
+  <div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Hero Widget ******************* -->
+  <Hero
+  tagline="Conception de sites Internet"
+    image={{ src: '~/assets/images/logod.webp', alt: 'Logo webmagnet' }}
+  >
+  <Fragment slot="title">
+    <span class="hidden xl:inline"></span>Site vitrine 
+    <span class="animate-custom-ping text-accent dark:text-primary highlight">3.0</span> : <br> une présence web<br>
+    <span class="animate-custom-ping1 text-accent dark:text-accent highlight">attractive</span> et 
+    <span class="animate-custom-ping2 text-accent dark:text-accent highlight">efficace</span>
+  </Fragment>
+  
+
+  <Fragment slot="subtitle" class="opacity-0 transform translate-y-5">
+    <span data-aos="fade-up" data-aos-duration="1000" class=" block mb-1 font-bold text-800 dark:text-cyan">La solution design et performante pour les pros</span>
+  </Fragment>
+  
+  </Hero>
+
+    <!-- Steps4 Widget ****************** -->
+
+    <Steps4
+    tagline="Web 3.0 "
+    title="Le meilleur de la technologie 2024 "
+    subtitle="Une nouvelle ère numérique"
+    description="L’arrivée du web 3.0 marque une véritable révolution digitale. Il transforme Internet en un environnement plus sûr pour ses utilisateurs et plus “raisonné” dans son fonctionnement. L'utilisation de ces technologies pour la création d'un site pro offre de multiples avantages aux entreprises qui cherchent à améliorer leur présence en ligne."
+     items={[
+      {
+        title: 'Rapide',
+        icon: 'ph:plus-circle-light',
+        description:'Le chargement instantané des pages rend la navigation beaucoup plus fluide et agréable pour l’utilisateur.',
+      },
+      {
+        title: 'Sécurisé',
+        icon: 'ph:plus-circle-light',
+        description:'Le web 3.0 dispose de protocoles de sécurité avancés qui limitent drastiquement les risques liés à l’utilisation des données.',
+      },
+      {
+        title: 'Performant',
+        icon: 'ph:plus-circle-light',
+        description:'Ces nouvelles technologies web offrent des performances incomparables, ce qui plaît beaucoup aux moteurs de recherche.',
+      },
+      {
+        title: 'Design',
+        icon: 'ph:plus-circle-light',
+        description:'Dotés d\'un design et d’animations modernes, les sites vitrine 3.0 attirent et retiennent l\'attention des visiteurs.',
+      },
+    ]}
+    items1={[
+       {
+      title: 'Cher',
+      icon: 'ph:minus-circle-light',
+      description:'Un site professionnel 3.0 coûte en moyenne 50 % moins cher à produire qu’un site équivalent développé sur Wordpress.',
+      },
+       {
+      title: 'Long à développer',
+      icon: 'ph:minus-circle-light',
+      description:'Les technologies web avancées simplifient la tâche du développeur et permettent de créer un site vitrine deux fois plus rapidement.',
+      },
+      {
+      title: 'Hébergement',
+      icon: 'ph:minus-circle-light',
+      description:'Les frais d’hébergement des sites 3.0 sont réduits, car ils disposent d’une meilleure gestion des ressources et d’un stockage des données dans le Cloud.',
+      },
+      {
+     title: 'Maintenance',
+     icon: 'ph:minus-circle-light',
+      description:'Mieux sécurisée, une vitrine 3.0 requiert moins d’actes de maintenance. Le coût du forfait mensuel lié à l’entretien du site est donc également réduit.',
+      },
+    ]}
+  />
+
+
+<!-- Steps Widget ****************** -->
+
+<Steps1
+isReversed
+tagline="UN SITE VITRINE 3.0"
+title="Quels avantages pour mon entreprise ?"
+items={[
+  {
+    title: 'Une visibilité accrue',
+    description:"Les sites de nouvelle génération offrent une meilleure visibilité sur les moteurs de recherche. Ils sont performants, rapides et optimisés, ce dont les algorithmes  de Google raffolent !",
+    icon: 'tabler:check',
+  },
+  {
+    title: 'Une crédibilité renforcée',
+    description:"Un site attractif sert votre réputation. Du design aux contenus : il reflète votre professionnalisme et met en avant votre savoir-faire pour inspirer confiance à vos visiteurs.",
+    icon: 'tabler:check',
+  },
+  {
+    title: 'Un atout pour se démarquer',
+    description:"Sur Internet aussi, la première impression est décisive. Selon Research Gate, celle-ci se joue à 94 % sur le design. Un site esthétique vous donne l’avantage sur vos concurrents et vous aide à convaincre vos clients.",
+    icon: 'tabler:check',
+  },
+  {
+    title: 'Un outil pour évoluer',
+    description:"Envoi de newsletter, campagnes publicitaires ou encore référencement : un bon site Internet constitue aussi la fondation essentielle de toute stratégie de croissance déployée en ligne.",
+    icon: 'tabler:check',
+  },
+]}
+image={{
+  src: '~/assets/images/man.webp',
+  alt: 'Site web contrat',
+}}
+/>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Des solutions web adaptées à vos besoins"
+    subtitle="Sites Internet clé en main et modulables"
+    tagline="Nos prestations"
+    items={[
+            {
+        title: 'Pack Essentiel',
+        description:
+          "Le site en une page comprend l’essentiel pour une présence en ligne professionnelle et attractive.",
+        image: { src: '~/assets/images/3dpad.webp', alt: 'site web responsive' },
+      },
+      {
+        title: 'Pack Pro',
+        description:
+          "Un site de 3 pages, idéal pour mettre en valeur votre entreprise, présenter vos prestations, asseoir votre crédibilité et convaincre vos visiteurs.",
+          image: { src: '~/assets/images/3dcomputer.webp', alt: 'site web 3.0' },
+      },
+      {
+        title: 'Pack Expert',
+        description: "L’offre expert comprend un site complet de 5 pages avec des fonctionnalités utiles à la croissance de votre activité sur Internet.",
+        image: { src: '~/assets/images/3dpuzzle.webp', alt: 'site web sur mesure' },
+      },
+      {
+        title: 'Hébergement et Maintenance',
+        description: 'Nous nous occupons de toutes les questions de techniques et de sécurité pour que rien ne vienne troubler le bon fonctionnement de votre site.',
+        image: { src: '~/assets/images/security.webp', alt: 'hébergement de site web' },
+      },
+      {
+        title: 'Création de Contenus',
+        description:
+          'Tous les contenus rédigés sont optimisés pour le SEO et orientés vers les résultats. Les textes sont conçus pour engager vos visiteurs et les convertir en clients.',
+          image: { src: '~/assets/images/contenu.webp', alt: 'contenus web copywriting' },
+      },
+      {
+        title: 'Webmarketing',
+        description: "Au-delà de votre site, nous vous aidons à faire évoluer votre entreprise. Nous mettons en place une stratégie digitale efficace grâce à des outils faciles à utiliser.",
+        image: { src: '~/assets/images/digital.webp', alt: 'site web marketing' },
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+   <!-- Steps Widget ****************** -->
+
+   <Steps5
+   tagline="Nos valeurs"
+   title="Notre Engagement"
+   items={[
+     {
+       title: '<span class="font-medium">Qualité</span>',
+       description:
+         "Nous faisons de l’excellence notre priorité. Affichage, design, contenus, performances ou encore accessibilité sur mobile : nous ne laissons rien au hasard pour que votre site web bénéficie (vraiment) à votre entreprise.",
+       icon: 'tabler:check',
+     },
+     {
+       title: '<span class="font-medium">Fiabilité</em>',
+       description:
+         "Ici, aucune fausse promesse ni * cachée dans un coin. Nous sommes convaincus qu’une communication 100 % honnête et transparente à chaque étape du projet est la seule vraie garantie d’obtenir un résultat à la hauteur de vos attentes.",
+       icon: 'tabler:check',
+     },
+     {
+       title: '<span class="font-medium">Disponibilité</span>',
+       description:
+         'Nous sommes de ceux qui prônent la relation durable ! Nous vous accompagnons avant, pendant et après la mise en place de votre site pour vous fournir en toutes circonstances les conseils et l’assistance dont vous avez besoin.',
+       icon: 'tabler:check',
+     },
+   ]}
+   image={{
+     src: '~/assets/images/photo.webp',
+     alt: 'Photographie fondateur',
+   }}
+ />
+
+ <!-- Stats Widget ****************** -->
+
+ <Stats
+ tagline="Solutions numériques 3.0"
+ title="La meilleure réponse aux enjeux du web en 2024"
+ stats={[
+   { title: 'des consommateurs font des recherches sur Internet avant de prendre une décision d’achat.', amount: '90 %' },
+   { title: 'des internautes déclarent ne pas faire confiance  à une entreprise sans site web.', amount: '56 %' },
+   { title: 'des consommateurs ont une meilleure opinion des entreprises dont le site web est adapté aux mobiles.', amount: '61 %' },
+   { title: 'des internautes quittent la page si elle met plus de 3 secondes à s’afficher.', amount: '40 %' },
+ ]}
+/>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Pour qui ?"
+    subtitle="Solutions digitales au service des entreprises locales"
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Commerce',
+        description:
+          'Boutique indépendante</br>Artisanat</br>Producteur local',
+        icon: 'ph:storefront-light',
+      },
+      {
+        title: 'Indépendant',
+        description:
+          'Mécanicien</br>Photographe</br>Professeur particulier',
+        icon: 'ph:users-light',
+      },
+      {
+        title: 'Bâtiment',
+        description:
+          'Artisan</br>Jardinier-paysagiste</br>Chauffagiste',
+        icon: 'ph:buildings-light',
+      },
+      {
+        title: 'Tourisme et loisir',
+        description:
+        'Hôtellerie-restauration</br>Parc et activité</br>Location saisonnière',
+        icon: 'ph:tent-light',
+      },
+      {
+        title: 'Sport et santé',
+        description:
+        'Thérapeute</br>Acteur du bien-être</br>Coach',
+        icon: 'ph:heart-light',
+      },
+      {
+        title: 'Transport',
+        description:
+        'Chauffeur taxi</br>Déménagement</br>Auto-école',
+        icon: 'ph:truck-light',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/coffeegirl.webp', alt: 'Site web pour indépendant' 
+    }}
+  />
+
+
+   <!-- Steps2 Widget ****************** -->
+
+   <Steps2
+   title="Nous contacter"
+   subtitle="Une idée ?<br>Une question ?"
+   callToAction={{
+     text: 'Envoyez-nous un message',
+     href: getPermalink('/contact'),
+     
+   }}
+   items={[
+     {
+       title: 'Email',
+       description: 'webmagnetsite@gmail.com',
+       icon: 'ph:messenger-logo-light',
+        
+     },
+     {
+       title: 'Linkedin',
+       description: '/in/webmagnetsite/',
+       icon: 'ph:linkedin-logo-light',
+     },
+   ]}
+ />
+  <!-- Content Widget **************** -->
+
+  <Content2
+    image={{
+      src: '~/assets/images/Megaphone.webp',
+      alt: 'FAQ site web 3.0',
+    }}>
+    </Content2>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs1
+    title="Foire aux Questions"
+    subtitle="À propos de la création d'un site vitrine 3.0"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: "Quels sont les avantages d'un site vitrine 3.0 par rapport à d'autres types de sites web ?",
+        description:
+          "Les sites vitrine 3.0 offrent un design moderne, une navigation intuitive pour les utilisateurs, une excellente compatibilité mobile et une optimisation SEO avancée. Ils garantissent une présence en ligne efficace et professionnelle à bas coût pour les entreprises locales.",
+      },
+      {
+        title: 'Comment un site vitrine peut-il améliorer ma présence en ligne ?',
+        description:
+          'En proposant un design attrayant et une expérience utilisateur fluide, un site vitrine 3.0 attire et engage davantage de visiteurs sur vos pages, tout en renforçant votre crédibilité et votre visibilité sur Internet.',
+      },
+      {
+        title: 'Comment obtenir un bon référencement de mon site vitrine sur Google ?',
+        description:
+          "Les sites 3.0 incluent des techniques avancées de SEO pour vous aider à atteindre une meilleure position dans les résultats de recherche Google.",
+      },
+      {
+        title: 'Quels sont les facteurs clés d’un bon référencement de mon site vitrine sur Google ?',
+        description:
+          "Les facteurs clés d’un bon référencement local de votre entreprise sur Google incluent la qualité du contenu, l'optimisation des balises méta, la vitesse de chargement du site et l’architecture de navigation simplifiée pour les utilisateurs.",
+      },
+    ]}
+  />
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Prendre RDV',
+        href: 'https://calendly.com/webmagnetsite',
+        target: '_blank',
+        icon: 'tabler:phone',
+      },
+    ]}
+    image={{ src: '~/assets/images/photo.webp', alt: 'developpeur site web' }}
+  >
+    <Fragment slot="title">
+      Un projet de site web ?<br class="block sm:hidden" />
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <br class=" hidden md:inline" />Discutons-en le temps d'un café !
+    </Fragment>
+  </CallToAction>
+</Layout>

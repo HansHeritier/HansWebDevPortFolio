@@ -1,0 +1,60 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Timeline2 from '~/components/ui/Timeline2.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Image from '~/components/common/Image.astro';
+import type { Steps } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  image = await Astro.slots.render('image'),
+  isReversed = false,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Steps;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+  <div class="w-full">
+    <Headline
+      title={title}
+      subtitle={subtitle}
+      tagline={tagline}
+      classes={{
+        container: 'text-left rtl:text-right',
+        title: 'text-3xl lg:text-4xl',
+        subtitle: 'text-x1',
+        ...((classes?.headline as {}) ?? {}),
+      }}
+    />
+  <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image}]}>
+    <div class:list={["md:py-4 md:self-center", { 'md:basis-full': image }, { "w-full": !image}]}>
+      <Timeline2 items={items} classes={classes?.items as {}} />
+    </div>
+    {
+      image && (
+        <div data-aos="slide-up" data-aos-duration="3000" class="h-auto relative m-auto max-w-5xl">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+          <Image
+          class=" rounded-md w-full"
+          widths={[100, 592, 712]}  
+          sizes="(max-width: 767px) 200px, (max-width: 1023px) 550px, (max-width: 2039px) 556px, 510px" 
+          loading="eager"
+          width={556} 
+          height={554}
+          {...image}
+        />
+          )}
+        </div>
+      )
+    }
+  </div>
+</WidgetWrapper>

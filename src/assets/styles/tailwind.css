@@ -1,0 +1,222 @@
+/* === Base Tailwind CSS Styles === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Utilitaires === */
+@layer utilities {
+  /* Couleur de fond pour la page */
+  .bg-page {
+    background-color: var(--aw-color-bg-page);
+  }
+
+  /* Couleur de fond sombre pour la page */
+  .bg-dark {
+    background-color: var(--aw-color-bg-page-dark);
+  }
+
+  /* Couleur de fond claire pour la page */
+  .bg-light {
+    background-color: var(--aw-color-bg-page);
+  }
+
+  /* Couleur du texte de la page */
+  .text-page {
+    color: var(--aw-color-text-page);
+  }
+
+  /* Texte en sourdine (muted) */
+  .text-muted {
+    color: var(--aw-color-text-muted);
+  }
+
+  }
+
+/* === Composants === */
+@layer components {
+  /* Bouton générique */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+  }
+
+  /* Bouton principal */
+  .btn-primary {
+    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+  }
+
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply btn;
+  }
+
+  /* Bouton tertiaire */
+  .btn-tertiary {
+    @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+  }
+}
+
+/* === Styles spécifiques au header lors du défilement === */
+#header.scroll > div:first-child {
+  /* Style du header lors du scroll vers le haut */
+  @apply bg-page md:bg-white/90 md:backdrop-blur-md;
+  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+}
+
+/* Styles alternatifs pour le header sombre */
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
+  @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
+  box-shadow: none;
+}
+
+/* Styles pour le header lorsqu'il est étendu (expanded) */
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+/* Affichage du menu déroulant au survol */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Styles pour les icônes Astro */
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+/* Styles pour l'animation du menu basculant (toggle) */
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+
+
+@keyframes custom-ping {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-custom-ping {
+  animation: custom-ping 1s ease; 
+}
+
+.animate-custom-ping1 {
+  animation: custom-ping 1s ease;
+  animation-delay: 1s;
+}
+
+.animate-custom-ping2 {
+  animation: custom-ping 2s ease;
+  animation-delay: 1s;
+}
+
+@keyframes move {
+  100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.background span {
+  width: 300vmin;
+  height: 300vmin;
+  border-radius: 100vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation: move;
+  animation-duration: 55s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+.background span:nth-child(0) {
+  color: #cf053154;
+  top: 11%;
+  left: 31%;
+  animation-duration: 70s;
+  animation-delay: -4s;
+  transform-origin: -11vw 12vh;
+  box-shadow: -320vmin 0 12.653512789969893vmin currentColor;
+}
+.background span:nth-child(1) {
+  color: #cf053154;
+  top: 77%;
+  left: 83%;
+  animation-duration: 71s;
+  animation-delay: -10s;
+  transform-origin: -12vw 11vh;
+  box-shadow: -320vmin 0 12.325441312748161vmin currentColor;
+}
+.background span:nth-child(2) {
+  color: #0473db4f;
+  top: 25%;
+  left: 82%;
+  animation-duration: 105s;
+  animation-delay: -4s;
+  transform-origin: -11vw 11vh;
+  box-shadow: -320vmin 0 12.571382808607147vmin currentColor;
+}
+.background span:nth-child(3) {
+  color: #0473db4f;
+  top: 75%;
+  left: 85%;
+  animation-duration: 70s;
+  animation-delay: 0s;
+  transform-origin: -11vw 12vh;
+  box-shadow: -320vmin 0 12.437401085268405vmin currentColor;
+}
+
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .3s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#E44949, #E44949)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+
+

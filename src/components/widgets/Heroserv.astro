@@ -1,0 +1,75 @@
+---
+import Image from '~/components/common/Image.astro';
+import type { CallToAction } from '~/types';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  content?: string;
+  actions?: string | CallToAction[];
+  image?: string | any; // TODO: find HTMLElementProps
+}
+
+const {
+  id,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
+---
+
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="py-12 md:py-20">
+      <div class="text-center max-w-5xl mx-auto">
+        {
+          tagline && (
+            <p
+              class="text-base text-accent font-bold mb-2 tracking-wide uppercase"
+              set:html={tagline}
+            />
+          )
+        }
+        {
+          title && (
+            <h1
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              set:html={title}
+            />
+          )
+        }
+        <div class="max-w-3xl mx-auto">
+          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+        </div>
+        {content && <Fragment set:html={content} />}
+      </div>
+      <div>
+        {
+          image && (
+            <div data-aos="slide-up" data-aos-duration="3000" class="relative m-auto max-w-5xl">
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+              <Image
+              class="mx-auto mt-5 rounded-md w-full"
+              widths={[100, 192, 512]}  
+              sizes="(max-width: 767px) 100px, (max-width: 1023px) 192px, (max-width: 2039px) 256px, 510px" 
+              loading="eager"
+              width={120} 
+              height={120}
+              {...image}
+            />
+              )}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

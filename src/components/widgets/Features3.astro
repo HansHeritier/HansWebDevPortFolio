@@ -1,0 +1,72 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid4 from '~/components/ui/ItemGrid4.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Features } from '~/types';
+import Image from '~/components/common/Image.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns,
+  image,
+  defaultIcon,
+  isBeforeContent,
+  isAfterContent,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Features;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12' : ''} ${isAfterContent ? 'pt-20 md:pt-0 lg:pt-0' : ''} ${
+    classes?.container ?? ''
+  }`}
+  bg={bg}
+>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
+  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
+    {
+      image && (
+        <div class="mb-4 md:w-full lg:w-2/3 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="w-full object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
+              width="auto"
+              height={320}
+              sizes="(max-width: 767px) 350px, (max-width: 1023px) 550px, (max-width: 2039px) 556px, 510px" 
+              widths={[400, 768]}
+              layout="cover"
+              {...(image as any)}
+            />
+          )}
+        </div>
+      )
+      
+    }
+  </div>
+  <div class="flex columns-2">
+  <ItemGrid4
+    items={items}
+    columns={columns}
+    defaultIcon={defaultIcon}
+    classes={{
+      container: 'mt-10',
+      panel: 'py-5 px-5 max-w-full sm:max-w-md justify-center border border-white/30 backdrop-blur-lg bg-white/10 rounded-xl',
+      title: 'text-lg font-semibold',
+      description: 'mt-1',
+      icon: 'flex-shrink-0 mt-1 text-primary hover:text-accent w-10 h-10',
+      ...((classes?.items as {}) ?? {}),
+    }}
+  />
+</div>
+</WidgetWrapper>
